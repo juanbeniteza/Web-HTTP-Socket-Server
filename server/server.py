@@ -11,7 +11,7 @@ import os
 import json
 
 load_dotenv()
-define('port', default=4041, help='port to listen on')
+PORT = 4041
 DARK_SKY_API_KEY = os.getenv("DARK_SKY_API_KEY")
 DARK_SKY_ENDPOINT = os.getenv("DARK_SKY_ENDPOINT")
 OPEN_CAGE_API_KEY = os.getenv("OPEN_CAGE_API_KEY")
@@ -90,7 +90,7 @@ def main():
     
     # Setup the server
     server = tornado.httpserver.HTTPServer(app)
-    server.listen(options.port)
+    server.listen(PORT)
     
     # Start io/event loop
     io_loop = tornado.ioloop.IOLoop.instance()
